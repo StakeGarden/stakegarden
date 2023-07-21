@@ -1,4 +1,4 @@
-import { DisplayText, HeadingText, TitleText } from "@/src/ui";
+import { DisplayText, HeadingText } from "@/src/ui";
 
 export default function Portfolios() {
   return (
