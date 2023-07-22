@@ -21,8 +21,7 @@ export default function MobileMenuList({ open, toggle }: MobileMenuListProps) {
           className="flex items-center py-3 text-em-med"
           onClick={toggle}
         >
-          <Icon name="blocks" alt="My gardens" size={18} />
-          <span className="ml-4">My gardens</span>
+          My gardens
         </Link>
       </div>
     </>
