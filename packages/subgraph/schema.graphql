@@ -1,0 +1,29 @@
+type SubgraphStatus @entity {
+  "SubgraphStatus"
+  id: ID!
+  isInitialized: Boolean!
+  lastSnapshotBlock: BigInt!
+}
+
+type StakeGardenPoolFactory @entity {
+  "StakeGardenPoolFactory"
+  id: ID!
+  "StakeGardenPoolFactory address"
+  address: Bytes!
+  "StakeGardenPoolFactory count"
+  orderCount: Int!
+}
+
+#
+# Provides information about an ERC20 token
+#
+type Token @entity {
+  " Token address "
+  id: ID!
+  " Number of decimals the token uses "
+  decimals: Int!
+  " Human-readable name of the token "
+  name: String!
+  " Symbol of the token "
+  symbol: String!
+}

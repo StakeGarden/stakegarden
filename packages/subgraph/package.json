@@ -1,0 +1,24 @@
+{
+  "name": "stake-garden-subgraph",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "auth": "npx graph auth https://api.thegraph.com/deploy/",
+    "codegen": "npx graph codegen",
+    "build": "npm run prepare:polygon && npx graph build",
+    "prepare:polygon": "ts-node bin/build-subgraph.ts polygon && npm run codegen",
+    "prepare:mainnet": "ts-node bin/build-subgraph.ts mainnet && npm run codegen",
+    "deploy": "npx graph deploy --node https://api.thegraph.com/deploy/ stake-garden/stake",
+    "create-local": "npx graph create --node https://rpc.tenderly.co/fork/089c3934-4b2c-4e2c-942e-03cd2c6b580f stake-garden/stake",
+    "remove-local": "npx graph remove --node https://rpc.tenderly.co/fork/089c3934-4b2c-4e2c-942e-03cd2c6b580f stake-garden/stake",
+    "deploy-local": "npx graph deploy --node https://rpc.tenderly.co/fork/089c3934-4b2c-4e2c-942e-03cd2c6b580f --ipfs http://localhost:5001 stake-garden/stake",
+    "test": "echo 'No tests yet, implement them'"
+  },
+  "devDependencies": {
+    "@graphprotocol/graph-cli": "0.51.2",
+    "@graphprotocol/graph-ts": "0.31.0",
+    "@types/node": "^18.11.18",
+    "ts-node": "^10.8.2",
+    "yaml": "^2.2.1"
+  }
+}
