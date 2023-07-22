@@ -8,7 +8,7 @@ export default function Home() {
           <DisplayText>
             Stake your ETH in the most diversified gardens
           </DisplayText>
-          <TitleText size={2}>
+          <TitleText size={2} className="text-em-low">
             The garden is staked eth portfolios that are fully collateralize. Or
             you can create your own.{" "}
           </TitleText>

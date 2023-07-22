@@ -1,5 +1,6 @@
 import { TextProps, boldStyles } from "@/src/ui/text/base";
 import { cva, cx } from "class-variance-authority";
+import { londrina } from "@/src/app/fonts";
 
 const displayTextStyles = cva([], {
   variants: {
@@ -30,7 +31,8 @@ export const DisplayText = ({
     <TextComponent
       className={cx(
         boldStyles({ weight }),
-        displayTextStyles({ size, className })
+        displayTextStyles({ size, className }),
+        londrina.className
       )}
     >
       {children}

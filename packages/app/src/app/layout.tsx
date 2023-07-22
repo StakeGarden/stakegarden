@@ -1,9 +1,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import { Navbar } from "../components";
-
-const inter = Inter({ subsets: ["latin"] });
+import { inter } from "@/src/app/fonts";
 
 export const metadata: Metadata = {
   title: "Stake Garden",
@@ -17,7 +15,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className + " bg-surface-25"}>
+      <body className={inter.className}>
         <Navbar />
         {children}
       </body>
