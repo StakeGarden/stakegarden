@@ -18,7 +18,10 @@ export default function Home() {
         </div>
         <TitleText>List of all staking the portfolios</TitleText>
         <div className=" shadow-lg bg-white rounded-2xl space-y-8 border border-surface-25 p-5">
-          <TitleText size={2}>SG</TitleText>
+          <div className="flex justify-between">
+            <TitleText size={2}>SG</TitleText>
+            <ButtonLink href="/garden?address=0x123456789">Open</ButtonLink>
+          </div>
           <BodyText>
             Stake any amount of ETH, get daily staking rewards and use your
             stETH across the DeFi ecosystem and L2.

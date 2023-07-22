@@ -13,8 +13,8 @@ export default function Home() {
             you can create your own.{" "}
           </TitleText>
         </div>
-        <ButtonLink href="/portfolios" width="fit" className="mx-auto">
-          Explore Portfolios
+        <ButtonLink href="/gardens" width="fit" className="mx-auto">
+          Explore Gardens
         </ButtonLink>
       </div>
     </main>

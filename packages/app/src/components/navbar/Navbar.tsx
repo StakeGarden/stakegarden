@@ -14,7 +14,7 @@ export function Navbar() {
           <Link
             tabIndex={0}
             href="/"
-            title="Stackly Home"
+            title="Stake Gardens Home"
             className="flex items-center outline-none w-14 md:w-40"
           >
             <Logo />
@@ -22,7 +22,7 @@ export function Navbar() {
         </div>
         <Divider />
         <div className="items-center justify-end hidden w-full gap-4 md:flex">
-          <ButtonLink action="quaternary" size="sm" href="/gardens">
+          <ButtonLink action="quaternary" size="sm" href="/my-gardens">
             My gardens
           </ButtonLink>
           <Divider />
