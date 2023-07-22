@@ -135,10 +135,20 @@ export default function Garden() {
             onChange={(e) => setAmount(e.target.value)}
           />
           <div className="flex space-x-3">
-            <Button width="fit" size="sm" action="secondary" className="">
-              24%
+            <Button
+              width="fit"
+              size="sm"
+              action="secondary"
+              onClick={() => setAmount(formatEther(parseEther(balance) / 4n))}
+            >
+              25%
             </Button>
-            <Button width="fit" size="sm" action="secondary" className="">
+            <Button
+              width="fit"
+              size="sm"
+              action="secondary"
+              onClick={() => setAmount(formatEther(parseEther(balance) / 2n))}
+            >
               50%
             </Button>
             <Button

@@ -1,7 +1,7 @@
 "use client";
 
 import { BodyText, Button, HeadingSection, HeadingText } from "@/src/ui";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { encodeFunctionData, parseEther } from "viem";
 import PoolFactoryABI from "@/src/abi/PoolFactory.json";
 import { createPublicClient, http } from "viem";
@@ -29,14 +29,8 @@ const tokensAddresses = [
 ];
 
 // const nativeAddress = "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE";
-const wethAddress = "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619";
 
 const defaultTokenValue = (100 / tokensArray.length).toString();
-
-const swapETHContract = "0x8168855279A17F8E5e16db2c5CF16a65c15F9d1b";
-
-const oneInchEndpoint = (amount: string, sell: string, buy: string) =>
-  `https://api.1inch.io/v5.0/137/swap?amount=${amount}&src=${sell}&dst=${buy}&from=${swapETHContract}&slippage=1&disableEstimate=true`;
 
 export default function Create() {
   const [values, setValues] = useState<string[]>(
@@ -47,29 +41,15 @@ export default function Create() {
   );
   const router = useRouter();
 
-  const [poolAddress, setPoolAddress] = useState<string>();
   const [tokenName, setTokenName] = useState<string>();
   const [tokenSymbol, setTokenSymbol] = useState<string>();
-  console.log(poolAddress);
+  const [isValid, setIsValid] = useState(true);
 
-  const createStake = async () => {
-    const newCalldatas: string[] = [];
-    const fetchPromises = tokensAddresses.map(async (value, index) => {
-      const res = await fetch(
-        oneInchEndpoint("1000000000000000", wethAddress, value)
-      );
-      return await res.json();
-    });
-
-    await Promise.all(fetchPromises).then((responses) => {
-      responses.forEach((value, index) => {
-        newCalldatas[index] = value.tx.data;
-      });
-      setCalldatas(newCalldatas);
-    });
-
-    console.log(newCalldatas);
-  };
+  useEffect(() => {
+    setIsValid(
+      Boolean(values.reduce((acc, value) => Number(value) + acc, 0) === 100)
+    );
+  }, [values]);
 
   const createPool = async () => {
     if (!tokenName && !tokenSymbol) return;
@@ -181,7 +161,7 @@ export default function Create() {
           size="lg"
           width="full"
           onClick={createPool}
-          disabled={!!poolAddress}
+          disabled={!isValid || !tokenName || !tokenSymbol}
         >
           Create garden
         </Button>
@@ -211,6 +191,7 @@ const TokenRow = ({
         placeholder="0"
         value={value}
         className="w-20 h-8 p-3 border rounded-lg outline-none bg-surface-25"
+        onChange={(e) => setValue(e.target.value)}
       />
       <Button
         size="icon"
