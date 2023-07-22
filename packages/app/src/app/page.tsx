@@ -22,7 +22,7 @@ export default function Home() {
           Explore Gardens
         </ButtonLink>
       </div>
-      <Garden className="w-full" />
+      <Garden className="absolute w-full -bottom-20 -z-10" />
     </main>
   );
 }
