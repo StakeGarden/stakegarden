@@ -22,7 +22,7 @@ export function Navbar() {
         </div>
         <Divider />
         <div className="items-center justify-end hidden w-full gap-4 md:flex">
-          <ButtonLink action="quaternary" size="sm" href="/my-gardens">
+          <ButtonLink action="quaternary" size="sm" href="/gardens/my-gardens">
             My gardens
           </ButtonLink>
           <Divider />

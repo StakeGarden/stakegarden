@@ -1,22 +1,14 @@
 "use client";
 
-import {
-  BodyText,
-  Button,
-  ButtonLink,
-  CaptionText,
-  DisplayText,
-  HeadingText,
-  TitleText,
-} from "@/src/ui";
+import { Button, CaptionText, HeadingText, TitleText } from "@/src/ui";
 import { useSearchParams } from "next/navigation";
 
-export default function Home() {
+export default function Garden() {
   const searchParams = useSearchParams();
   const address = searchParams.get("address");
 
   return (
-    <main className="max-w-2xl mx-auto py-16 transperant">
+    <main className="max-w-2xl py-16 mx-auto transperant">
       <div className="space-y-6">
         <div className="text-center">
           <HeadingText size={3}>Stake in {address} garden</HeadingText>
@@ -26,7 +18,7 @@ export default function Home() {
           <br />
           decentralized pool.
         </TitleText>
-        <div className=" shadow-lg bg-white rounded-2xl space-y-2 border border-surface-25 p-5">
+        <div className="p-5 space-y-2 bg-white border shadow-lg rounded-2xl border-surface-25">
           <CaptionText>ETH Amount</CaptionText>
           <input
             className="w-full h-12 text-3xl"
