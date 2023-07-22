@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { connectWallet } from "../metamask";
 import { Button } from "../ui";
 import detectEthereumProvider from "@metamask/detect-provider";
 

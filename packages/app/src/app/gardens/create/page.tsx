@@ -8,6 +8,13 @@ import { createPublicClient, http } from "viem";
 import { mainnet } from "viem/chains";
 import { useRouter } from "next/navigation";
 
+// add ethereum type to window
+declare global {
+  interface Window {
+    ethereum: any
+  }
+}
+
 const client = createPublicClient({
   chain: mainnet,
   transport: http(
@@ -86,7 +93,7 @@ export default function Create() {
           },
         ],
       })
-      .then(async (txHash) => {
+      .then(async (txHash: string) => {
         const transaction = await client?.getTransactionReceipt({
           hash: txHash as `0x${string}`,
         });
@@ -94,7 +101,7 @@ export default function Create() {
         console.log(txHash)
         router.push("/gardens/garden?address=" + transaction.logs[0].address);
       })
-      .catch((error) => console.error(error));
+      .catch((error: any) => console.error(error));
   };
 
   return (
