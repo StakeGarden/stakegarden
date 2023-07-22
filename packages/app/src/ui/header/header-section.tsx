@@ -20,7 +20,7 @@ export const HeadingSection = ({
         "justify-between": href,
       })}
     >
-      <DisplayText size="0">{title}</DisplayText>
+      <DisplayText size={0}>{title}</DisplayText>
       {href && buttonText && (
         <ButtonLink href={href} width="fit">
           {buttonText}
