@@ -8,14 +8,14 @@ import { ConnectButton } from "@/src/components";
 
 export function Navbar() {
   return (
-    <header className="top-0 flex flex-col w-full border-b border-solid h-nav-height bg-surface-25 border-b-surface-75 px-12">
+    <header className="top-0 flex flex-col w-full px-12 border-b border-solid h-nav-height bg-surface-25 border-b-surface-75">
       <nav className="flex items-center w-full h-full">
         <div>
           <Link
             tabIndex={0}
             href="/"
             title="Stake Gardens Home"
-            className="flex items-center outline-none w-14 md:w-40"
+            className="flex items-center w-20 outline-none md:w-48"
           >
             <Logo />
           </Link>
