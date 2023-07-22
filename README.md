@@ -64,13 +64,13 @@
 
 <!-- [![Product Name Screen Shot][product-screenshot]](https://example.com) -->
 
-StakeGarden is customs collateralize staking tokens portfolio that allows you to diversify and mitigate the risk keeping you safe and in control.
+StakeGarden is a Self Managed Liquid Staking Tokens Portfolio that allows you to diversify and mitigate the risk keeping you safe and in control.
 
-Stake ETH and receive SgETH which represents our decentralized pool. 
+Stake ETH and receive a token fully collateralized which represents your own decentralized pool.
 
-Our platform is designed to provide you with hassle-free access to the best yields available and decide the percentage risk in different liquidity protocols.
+Our platform is designed to provide you with hassle-free access to the best yields available so you can decide the percentage risk in different liquidity protocols.
 
-Stake any amount of ETH, get daily staking rewards and use your sgETH across the DeFi ecosystem and L2.
+Stake any amount of ETH, get daily staking rewards and use your token across the DeFi ecosystem and L2.
 
 Join us now and cultivate your financial growth in the ever-expanding world of decentralized finance.
 
@@ -84,8 +84,10 @@ Join us now and cultivate your financial growth in the ever-expanding world of d
 Stake Garden is proudly supported by the following sponsors:
 
 * [![1inch][1inch.io]][1inch-url]
+* [![The Graph][thegraph.com]][Thegraph-url]
 * [![Metamask][metamask.io]][Metamask-url]
 * [![Nouns DAO][nouns.wtf]][Nouns-url]
+
 
 
 These powerful tools and frameworks have helped us create a seamless user experience and ensure the scalability and reliability of our platform.
@@ -107,7 +109,7 @@ To get started with Stake Garden, follow these steps:
 
 2. Explore the homepage to discover different ways to build and customize your staking portfolio. You can choose the percentage and distribution that you'd like to put in your token basket. 
 
-3. Stake any amount of ETH, get daily staking rewards and use your sgETH across the DeFi ecosystem and L2.
+3. Stake any amount of ETH, get daily staking rewards and use your collateralized token across the DeFi ecosystem and L2.
 
 4. Withdraw staked collaterals with rewards anytime.
 
@@ -141,7 +143,7 @@ To get started with Stake Garden, follow these steps:
 Please note that the above steps assume you have Node.
 Node and yarn (package manager) installed on your machine
 
-Start to cultivate your financial growth in the ever-expanding world of decentralised finance. Enjoy Stake Garden!
+Start to cultivate your financial growth in the ever-expanding world of decentralized finance. Enjoy Stake Garden!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -221,7 +223,9 @@ We would like to express our gratitude to the following resources that have been
 
 * [1inch Docs](https://portal.1inch.dev/documentation/authentication)
 * [Metamask SDK](https://docs.metamask.io/wallet/how-to/use-sdk/)
+* [The Graph Docs](https://thegraph.com/docs)
 * [Nouns Artwork](https://nouns.center/assets)
+
 
 <!-- * [Filecoin Docs](https://docs.filecoin.io/) -->
 
@@ -252,6 +256,8 @@ These resources have provided valuable insights, tools, and inspiration througho
 [1inch-url]:https://1inch.io
 [metamask.io]:https://img.shields.io/badge/metamask-EB9510?style=for-the-badge&logo=metamask&logoColor=white
 [Metamask-url]:https://metamask.io
+[thegraph.com]:https://img.shields.io/badge/thegraph-000000?style=for-the-badge&logo=TheGraph&logoColor=white
+[Thegraph-url]:https://thegraph.com
 [nouns.wtf]:https://img.shields.io/badge/nounsdao-36E000?style=for-the-badge&logo=nounsdao&logoColor=white
 [Nouns-url]:https://nouns.wtf
 
