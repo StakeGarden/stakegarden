@@ -12,7 +12,7 @@ export default function Home() {
       <div className="space-y-6">
         <div className="flex justify-between">
           <HeadingText size={3}>Staking gardens</HeadingText>
-          <ButtonLink href="/create-garden" width="fit">
+          <ButtonLink href="/create" width="fit">
             Create Garden
           </ButtonLink>
         </div>
@@ -20,7 +20,7 @@ export default function Home() {
         <div className=" shadow-lg bg-white rounded-2xl space-y-8 border border-surface-25 p-5">
           <div className="flex justify-between">
             <TitleText size={2}>SG</TitleText>
-            <ButtonLink href="/garden?address=0x123456789">Open</ButtonLink>
+            <ButtonLink href="/garden?address=0x123456789">Stake</ButtonLink>
           </div>
           <BodyText>
             Stake any amount of ETH, get daily staking rewards and use your
