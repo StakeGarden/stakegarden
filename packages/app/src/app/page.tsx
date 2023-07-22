@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <main>
       <div className="pt-16 space-y-24">
-        <div className="max-w-3xl mx-auto space-y-4 text-center">
+        <div className="max-w-3xl px-4 mx-auto space-y-4 text-center">
           <div className="flex items-center justify-center">
             <NounsGlasses />
           </div>
