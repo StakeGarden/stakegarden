@@ -170,7 +170,7 @@ export default function Create() {
           onClick={createPool}
           disabled={!isValid || !tokenName || !tokenSymbol}
         >
-          Create garden
+          Create Portfolio
         </Button>
       </div>
     </main>

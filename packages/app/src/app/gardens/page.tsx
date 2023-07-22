@@ -7,7 +7,7 @@ export default function Gardens() {
         <HeadingSection
           title="Staking gardens"
           description="List of all staking the portfolios"
-          buttonText="create portfolio"
+          buttonText="Create Portfolio"
           href="/gardens/create"
         />
         <div className="p-5 space-y-8 bg-white border shadow-lg rounded-2xl border-surface-25">
@@ -18,7 +18,7 @@ export default function Gardens() {
               size="sm"
               href="/gardens/garden?address=0x123456789"
             >
-              Open
+              Stake
             </ButtonLink>
           </div>
           <BodyText>

@@ -7,7 +7,7 @@ export default function Portfolios() {
         <HeadingSection
           title="My gardens"
           description="List of my portfolios"
-          buttonText="create portfolio"
+          buttonText="Create Portfolio"
           href="/gardens/create"
         />
       </div>
