@@ -28,20 +28,14 @@ const Card = ({ children }: { children: any }) => (
   </div>
 );
 
-//const tokensArray = ["stEth", "rEth", "wEth", "saEth"];
-// const tokensArray = ["USDC", "WETH"];
-// const tokensAddresses = [
-//   "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
-//   "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
-// ];
 
-const tokensArrayETH = ["stETH", "RPL"];
+
+const tokenImages = ["https://tokens.1inch.io/0xae7ab96520de3a18e5e111b5eaab095312d7fe84.png","https://tokens.1inch.io/0xae78736cd615f374d3085123a210448e74fc6393.png"]
+const tokensArrayETH = ["stETH", "rETH"];
 const tokensAddressesETH = [
   "0xae7ab96520de3a18e5e111b5eaab095312d7fe84",
   "0xae78736cd615f374d3085123a210448e74fc6393",
 ];
-
-// const nativeAddress = "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE";
 
 const defaultTokenValue = (100 / tokensArrayETH.length).toString();
 
@@ -138,24 +132,17 @@ export default function Create() {
                 value={tokenSymbol}
               />
             </div>
-            {/* <div className="space-y-2">
-              <BodyText>Description</BodyText>
-              <input
-                type="text"
-                placeholder="zETH is a zen portfolio ..."
-                className="w-full p-3 border rounded-lg outline-none bg-surface-25"
-              />
-            </div> */}
           </Card>
         </div>
         <div className="space-y-2">
           <HeadingText>Tokens</HeadingText>
           <Card>
             <div className="divide-y divide-surface-25">
-              {tokensArrayETH.map((token, index) => (
+              {tokensArrayETH.map((name, index) => (
                 <TokenRow
-                  key={token}
-                  token={token}
+                  image={tokenImages[index]}
+                  key={name}
+                  title={name}
                   value={values[index]}
                   index={index}
                   setValue={(value: string) =>
@@ -163,7 +150,7 @@ export default function Create() {
                       ...values.slice(0, index),
                       value,
                       ...values.slice(index + 1),
-                    ])
+                  ])
                   }
                 />
               ))}
@@ -185,19 +172,21 @@ export default function Create() {
 }
 
 const TokenRow = ({
-  token,
+  title,
   value,
+  image,
   setValue,
 }: {
-  token: any;
+    title: string;
+    image: string;
   value: string;
   index: number;
   setValue: Function;
 }) => (
   <div className="flex items-center justify-between py-2">
     <div className="flex items-center space-x-3">
-      <div className="w-8 h-8 rounded-full bg-primary-100"></div>
-      <BodyText>{token}</BodyText>
+      <img src={image} className="w-8 h-8 border rounded-full border-surface-75" alt="token logo" />
+      <BodyText>{title}</BodyText>
     </div>
     <div className="flex items-center space-x-2">
       <input
