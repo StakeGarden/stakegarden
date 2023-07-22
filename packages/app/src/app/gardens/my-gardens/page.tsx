@@ -2,7 +2,7 @@ import { HeadingSection } from "@/src/ui";
 
 export default function Portfolios() {
   return (
-    <main className="max-w-2xl py-32 mx-auto">
+    <main>
       <div className="space-y-4">
         <HeadingSection
           title="My gardens"
