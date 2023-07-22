@@ -64,13 +64,13 @@
 
 <!-- [![Product Name Screen Shot][product-screenshot]](https://example.com) -->
 
-StakeGarden is customs collateralize staking tokens portfolio that allows you to diversify and mitigate the risk keeping your safe and control.
+StakeGarden is customs collateralize staking tokens portfolio that allows you to diversify and mitigate the risk keeping you safe and in control.
 
 Stake ETH and receive SgETH which represents our decentralized pool. 
 
 Our platform is designed to provide you with hassle-free access to the best yields available and decide the percentage risk in different liquidity protocols.
 
-Stake any amount of ETH, get daily staking rewards and use your stETH across the DeFi ecosystem and L2.
+Stake any amount of ETH, get daily staking rewards and use your sgETH across the DeFi ecosystem and L2.
 
 Join us now and cultivate your financial growth in the ever-expanding world of decentralized finance.
 
@@ -107,7 +107,7 @@ To get started with Stake Garden, follow these steps:
 
 2. Explore the homepage to discover different ways to build and customize your staking portfolio. You can choose the percentage and distribution that you'd like to put in your token basket. 
 
-3. Stake any amount of ETH, get daily staking rewards and use your stETH across the DeFi ecosystem and L2.
+3. Stake any amount of ETH, get daily staking rewards and use your sgETH across the DeFi ecosystem and L2.
 
 4. Withdraw staked collaterals with rewards anytime.
 
@@ -127,34 +127,36 @@ To get started with Stake Garden, follow these steps:
    ```
 3. Install the necessary dependencies:
    ```js
-   npm install
+   yarn install
    ```
 4.  Configure the environment variables:
   * Rename the .env.example file to .env.
   * Open the .env file and fill in the required configuration values.
 5. Start the development server:
     ```js
-   npm run dev
+   yarn dev
    ```
 6. Open your web browser and visit http://localhost:3000 to access the Join application.
 
-Please note that the above steps assume you have Node.js and npm (Node Package Manager) installed on your machine.
+Please note that the above steps assume you have Node.
+Node and yarn (package manager) installed on your machine
 
-Enjoy using Join and start to cultivate your financial growth in the ever-expanding world of decentralized finance.
+Start to cultivate your financial growth in the ever-expanding world of decentralised finance. Enjoy Stake Garden!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 <!-- USAGE EXAMPLES -->
 
-# Usage
+<!-- # Usage
 
-<!-- Acá va el demo en video y un par de bundles -->
+ Acá va el demo en video y un par de bundles
 
-_For more examples, please refer to the [Documentation](https://example.com)_ -->
+_For more examples, please refer to the [Documentation](https://example.com)_ 
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">back to top</a>)</p> 
 
+ -->
 
 <!-- CONTRIBUTING -->
 
