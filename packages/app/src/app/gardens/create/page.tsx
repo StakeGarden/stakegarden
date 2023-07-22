@@ -1,6 +1,6 @@
 "use client";
 
-import { BodyText, Button, DisplayText, HeadingText } from "@/src/ui";
+import { BodyText, Button, HeadingSection, HeadingText } from "@/src/ui";
 import { useState } from "react";
 import { encodeFunctionData, parseEther } from "viem";
 import PoolFactoryABI from "@/src/abi/PoolFactory.json";
@@ -105,20 +105,18 @@ export default function Create() {
           hash: txHash as `0x${string}`,
         });
         //setPoolAddress(transaction.logs[0].address);
-        router.push("/garden?address=" + transaction.logs[0].address);
+        router.push("/gardens/garden?address=" + transaction.logs[0].address);
       })
       .catch((error) => console.error(error));
   };
 
   return (
-    <main className="max-w-2xl px-5 py-32 mx-auto">
+    <main>
+      <HeadingSection
+        title="Create your garden"
+        description="Your garden. Your rules"
+      />
       <div className="space-y-10">
-        <div className="max-w-5xl mx-auto space-y-4 text-center">
-          <DisplayText>Create your garden</DisplayText>
-          <HeadingText className="text-em-low">
-            Your garden. Your rules
-          </HeadingText>
-        </div>
         <div className="space-y-2">
           <HeadingText>Details</HeadingText>
           <Card>

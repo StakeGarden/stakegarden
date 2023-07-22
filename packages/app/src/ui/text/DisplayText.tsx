@@ -8,6 +8,7 @@ const displayTextStyles = cva([], {
       3: ["text-[104px] leading-[120px]"],
       2: ["text-[88px] leading-[96px]"],
       1: ["text-4xl md:text-[74px] md:leading-[88px]"],
+      0: ["text-4xl md:text-[58px]"],
     },
   },
   defaultVariants: {
@@ -16,7 +17,7 @@ const displayTextStyles = cva([], {
 });
 
 interface DisplayTextProps extends TextProps {
-  size?: 1 | 2 | 3;
+  size?: 0 | 1 | 2 | 3;
 }
 
 export const DisplayText = ({

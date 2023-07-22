@@ -8,7 +8,7 @@ import { ConnectButton } from "@/src/components";
 
 export function Navbar() {
   return (
-    <header className="top-0 flex flex-col w-full px-12 border-b border-solid h-nav-height bg-surface-25 border-b-surface-75">
+    <header className="top-0 flex flex-col w-full px-4 border-b border-solid md:px-12 h-nav-height bg-surface-25 border-b-surface-75">
       <nav className="flex items-center w-full h-full">
         <div>
           <Link
@@ -22,7 +22,7 @@ export function Navbar() {
         </div>
         <Divider />
         <div className="items-center justify-end hidden w-full gap-4 md:flex">
-          <ButtonLink action="quaternary" size="sm" href="/my-gardens">
+          <ButtonLink action="quaternary" size="sm" href="/gardens/my-gardens">
             My gardens
           </ButtonLink>
           <Divider />
