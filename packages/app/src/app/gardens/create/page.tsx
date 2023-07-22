@@ -5,13 +5,13 @@ import { useEffect, useState } from "react";
 import { encodeFunctionData, parseEther } from "viem";
 import PoolFactoryABI from "@/src/abi/PoolFactory.json";
 import { createPublicClient, http } from "viem";
-import { polygon } from "viem/chains";
+import { mainnet } from "viem/chains";
 import { useRouter } from "next/navigation";
 
 const client = createPublicClient({
-  chain: polygon,
+  chain: mainnet,
   transport: http(
-    "https://rpc.tenderly.co/fork/089c3934-4b2c-4e2c-942e-03cd2c6b580f"
+    "https://rpc.tenderly.co/fork/179c6093-0531-4a86-9847-c6c2915798e1"
   ),
 });
 
@@ -22,22 +22,28 @@ const Card = ({ children }: { children: any }) => (
 );
 
 //const tokensArray = ["stEth", "rEth", "wEth", "saEth"];
-const tokensArray = ["USDC", "WETH"];
-const tokensAddresses = [
-  "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
-  "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+// const tokensArray = ["USDC", "WETH"];
+// const tokensAddresses = [
+//   "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+//   "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+// ];
+
+const tokensArrayETH = ["stETH", "RPL"];
+const tokensAddressesETH = [
+  "0xae7ab96520de3a18e5e111b5eaab095312d7fe84",
+  "0xae78736cd615f374d3085123a210448e74fc6393",
 ];
 
 // const nativeAddress = "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE";
 
-const defaultTokenValue = (100 / tokensArray.length).toString();
+const defaultTokenValue = (100 / tokensArrayETH.length).toString();
 
 export default function Create() {
   const [values, setValues] = useState<string[]>(
-    Array(tokensArray.length).fill(defaultTokenValue)
+    Array(tokensArrayETH.length).fill(defaultTokenValue)
   );
   const [calldatas, setCalldatas] = useState<(string | undefined)[]>(
-    Array(tokensArray.length).fill(undefined)
+    Array(tokensArrayETH.length).fill(undefined)
   );
   const router = useRouter();
 
@@ -61,7 +67,7 @@ export default function Create() {
       functionName: "createPool",
       // stakeTokens, weights, name, symbol
       // string[], string[], string, string
-      args: [tokensAddresses, weight, tokenName, tokenSymbol],
+      args: [tokensAddressesETH, weight, tokenName, tokenSymbol],
     });
 
     const accounts = (await window.ethereum?.request({
@@ -75,7 +81,7 @@ export default function Create() {
         params: [
           {
             from: accounts[0], // The user's active address.
-            to: "0x5BEBd2841FAaeCF9de2F1ebbA29C9573Fc38DEF0", //<recipient address> // Required except during contract publications.
+            to: "0x5E87Eb8EB2DD334df0B0e3367CB53D9C435A20cC", //<recipient address> // Required except during contract publications.
             data,
           },
         ],
@@ -85,6 +91,7 @@ export default function Create() {
           hash: txHash as `0x${string}`,
         });
         //setPoolAddress(transaction.logs[0].address);
+        console.log(txHash)
         router.push("/gardens/garden?address=" + transaction.logs[0].address);
       })
       .catch((error) => console.error(error));
@@ -138,7 +145,7 @@ export default function Create() {
           <HeadingText>Tokens</HeadingText>
           <Card>
             <div className="divide-y divide-surface-25">
-              {tokensArray.map((token, index) => (
+              {tokensArrayETH.map((token, index) => (
                 <TokenRow
                   key={token}
                   token={token}

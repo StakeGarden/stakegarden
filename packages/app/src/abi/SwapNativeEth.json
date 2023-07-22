@@ -1,0 +1,54 @@
+[
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_controller",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  {
+    "inputs": [],
+    "name": "DexSwapFailed",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "InvalidPool",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "controller",
+    "outputs": [
+      {
+        "internalType": "contract IController",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_pool",
+        "type": "address"
+      },
+      {
+        "internalType": "bytes[]",
+        "name": "swapData",
+        "type": "bytes[]"
+      }
+    ],
+    "name": "executeSwaps",
+    "outputs": [],
+    "stateMutability": "payable",
+    "type": "function"
+  }
+]

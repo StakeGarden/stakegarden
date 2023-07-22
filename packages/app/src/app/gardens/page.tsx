@@ -16,7 +16,7 @@ export default function Gardens() {
             <ButtonLink
               action="tertiary"
               size="sm"
-              href="/garden?address=0x123456789"
+              href="/gardens/garden?address=0x123456789"
             >
               Open
             </ButtonLink>
