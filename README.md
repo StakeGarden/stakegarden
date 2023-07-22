@@ -80,27 +80,16 @@ Join us now and cultivate your financial growth in the ever-expanding world of d
 
 # Built With
 
-<!-- 
 
-Join is proudly supported by the following sponsors:
+Stake Garden is proudly supported by the following sponsors:
 
-* [![Polybase][Polybase.xyz]][Polybase-url]
-* [![Push][Push.org]][Push-url]
-* [![NFT.STORAGE][NFT.Storage]][NFT-url]
-* [![Spheron][Spheron.network]][Spheron-url]
-* [![ENS][Ens.domains]][Ens-url]
-* [![Filecoin][Filecoin.io]][Filecoin-url]
+* [![1inch][1inch.io]][1inch-url]
+* [![Metamask][metamask.io]][Metamask-url]
+* [![Nouns DAO][nouns.wtf]][Nouns-url]
 
-In the development of the Join website, we used the following technologies:
-
-
-* [![Next][Next.js]][Next-url]
-* [![Chakra][chakra-ui]][chakra-url]
-* [![Node][Node.js]][Node-url]
 
 These powerful tools and frameworks have helped us create a seamless user experience and ensure the scalability and reliability of our platform.
 
--->
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -111,29 +100,26 @@ These powerful tools and frameworks have helped us create a seamless user experi
 
 # Getting Started
 
-<!-- 
-To get started with Join, follow these steps:
 
-1. Login with your wallet on the Join website at [letsjoin.xyz](letsjoin.xyz)
+To get started with Stake Garden, follow these steps:
 
-2. Explore the homepage to discover upcoming tech and web3 events. You can filter events by category, location, and format to find the ones that interest you.
+1. Login with your wallet on the Stake Garden website at [stakegarden.eth.limo](stakegarden.eth.limo)
 
-3. Click on an event to view more details such as the date, time, speakers, and description.
+2. Explore the homepage to discover different ways to build and customize your staking portfolio. You can choose the percentage and distribution that you'd like to put in your token basket. 
 
-4. Stay updated with event notifications through your preferred channels, such as email or push notifications on your mobile device.
+3. Stake any amount of ETH, get daily staking rewards and use your stETH across the DeFi ecosystem and L2.
 
-5. Engage with the Join community by participating in discussions, networking with other attendees, and sharing your experiences.
+4. Withdraw staked collaterals with rewards anytime.
 
-That's it! You are now ready to make the most of Join and stay connected with the tech and web3 event scene. -->
 
 
 ## Installation 
 
-<!-- To get started with Join installation, follow these steps:
+ To get started with Join installation, follow these steps:
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/sheva323/JOIN
+   git clone https://github.com/StakeGarden/stakegarden/
    ```
 2. Navigate to the project directory:
    ```sh
@@ -154,11 +140,9 @@ That's it! You are now ready to make the most of Join and stay connected with th
 
 Please note that the above steps assume you have Node.js and npm (Node Package Manager) installed on your machine.
 
-Enjoy using Join and stay connected with the exciting world of tech and web3 events!
+Enjoy using Join and start to cultivate your financial growth in the ever-expanding world of decentralized finance.
 
--->
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 
 
 <!-- USAGE EXAMPLES -->
@@ -167,36 +151,7 @@ Enjoy using Join and stay connected with the exciting world of tech and web3 eve
 
 <!-- Acá va el demo en video y un par de bundles -->
 
-<!--Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
 _For more examples, please refer to the [Documentation](https://example.com)_ -->
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- ROADMAP -->
-# Roadmap
-
-<!-- 
-- [x] Event reminder scheduling
-- [x] Event filtering by date: today, weekend, next week
-- [x] Dev tooling for loading fixtures on Polygon
-- [x] Aggregated event visualization across different platforms
-- [x] Gasless transactions
-- [ ] Add Protocol of Events (content-agnostic)
-- [ ] DAO Suit Tooling
-- [ ] Payment Method
-- [ ] Decentralized Mentoring
-- [ ] SDK for easily creating events from any source
-- [ ] After an event is completed, update with links to recordings, slides, repositories, or other historical resources. This allows users to look back in time and view events on-demand, having all the related resources in one place.
-- [ ] Community events incentives for creating events, updating a past event with recording links, reporting events with malicious or incorrect information, etc.
-
-
-
-See the [open issues](https://github.com/StakeGarden/stakegarden/issues) for a full list of proposed features (and known issues).
-
--->
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -259,16 +214,14 @@ Leonardo - [@berteotti_](https://twitter.com/berteotti_)
 
 # Acknowledgments
 
-<!-- 
 
 We would like to express our gratitude to the following resources that have been invaluable in the development of Stake Garden:
 
-* [Push Protocol Docs](https://docs.push.org/hub/)
-* [Polybase Docs](https://polybase.xyz/docs/introduction)
-* [Spheron Docs](https://docs.spheron.network/)
-* [ENS Docs](https://docs.ens.domains/)
-* [NFT.Storage Docs](https://nft.storage/docs/)
-* [Filecoin Docs](https://docs.filecoin.io/)
+* [1inch Docs](https://portal.1inch.dev/documentation/authentication)
+* [Metamask SDK](https://docs.metamask.io/wallet/how-to/use-sdk/)
+* [Nouns Artwork](https://nouns.center/assets)
+
+<!-- * [Filecoin Docs](https://docs.filecoin.io/) -->
 
 These resources have provided valuable insights, tools, and inspiration throughout the development process. We appreciate their contributions to the web development community.
 
@@ -280,43 +233,27 @@ These resources have provided valuable insights, tools, and inspiration througho
 
 <!-- MARKDOWN LINKS  CUIDADO ACÁ QUE DEBO CAMBIAr ESTO-->
 
-[contributors-shield]: https://img.shields.io/github/contributors/sheva323/JOIN.svg?style=for-the-badge
+[contributors-shield]:https://img.shields.io/github/contributors/StakeGarden/stakegarden.svg?style=for-the-badge
 [contributors-url]: https://github.com/StakeGarden/stakegarden/graphs/contributors
-[stars-shield]: https://img.shields.io/github/stars/sheva323/JOIN.svg?style=for-the-badge
+[stars-shield]: https://img.shields.io/github/stars/StakeGarden/stakegarden.svg?style=for-the-badge
 [stars-url]:https://github.com/StakeGarden/stakegarden/stargazers
-[issues-shield]: https://img.shields.io/github/issues/sheva323/JOIN.svg?style=for-the-badge
+[issues-shield]: https://img.shields.io/github/issues/StakeGarden/stakegarden.svg?style=for-the-badge
 [issues-url]: https://github.com/StakeGarden/stakegarden/issues
 <!-- [license-shield]: https://img.shields.io/github/license/sheva323/JOIN.svg?style=for-the-badge
 [license-url]: https://github.com/sheva323/JOIN/blob/main/LICENSE.txt -->
 
-
 <!-- IMAGES -->
 
-[product-screenshot]: images/product.png
+<!-- [product-screenshot]: images/product.png -->
 
 <!-- SPONSORS -->
 
-[Polybase.xyz]:https://img.shields.io/badge/Polybase-FFFFFF?style=for-the-badge&logo=polybase&logoColor=black
-[Polybase-url]:https://polybase.xyz
-[Push.org]:https://img.shields.io/badge/push-e03dc1?style=for-the-badge&logo=push&logoColor=white
-[Push-url]:https://push.org
-[NFT.Storage]:https://img.shields.io/badge/nft.storage-EE4116?style=for-the-badge&logo=nftdotstorage&logoColor=white
-[NFT-url]:https://nft.storage
-[Spheron.network]:https://img.shields.io/badge/spheron-0000ff?style=for-the-badge&logo=spheron&logoColor=blue
-[Spheron-url]:https://spheron.network/
-[Ens.domains]:https://img.shields.io/badge/ens-4f81fe?style=for-the-badge&logo=ens&logoColor=blue
-[Ens-url]:https://ens.domains/
-[Filecoin.io]:https://img.shields.io/badge/filecoin-40bec8?style=for-the-badge&logo=filecoin&logoColor=blue
-[Filecoin-url]:https://filecoin.io/
+[1inch.io]:https://img.shields.io/badge/1inch-741FE0?style=for-the-badge&logo=polybase&logoColor=black
+[1inch-url]:https://1inch.io
+[metamask.io]:https://img.shields.io/badge/metamask-EB9510?style=for-the-badge&logo=metamask&logoColor=white
+[Metamask-url]:https://metamask.io
+[nouns.wtf]:https://img.shields.io/badge/nounsdao-36E000?style=for-the-badge&logo=nounsdao&logoColor=white
+[Nouns-url]:https://nouns.wtf
 
-<!-- TOOLS AND FRAMEWORKS  -->
-
-
-[Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
-[Next-url]: https://nextjs.org/
-[chakra-ui]:https://img.shields.io/badge/chakra-2ABFB3?style=for-the-badge&logo=chakraui&logoColor=white
-[chakra-url]:https://chakra-ui.com
-[Node.js]:https://img.shields.io/badge/node.js-333333?style=for-the-badge&logo=nodedotjs&logoColor=689F63
-[Node-url]:https://nodejs.org/en
-
-<!-- Made with Love <3 después de un laaaaaargo laaaaargo tiempo sin tocar estas vainas del código md hehe> -->
+<!-- [Filecoin.io]:https://img.shields.io/badge/filecoin-40bec8?style=for-the-badge&logo=filecoin&logoColor=blue
+[Filecoin-url]:https://filecoin.io/ -->
