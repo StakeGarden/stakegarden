@@ -6,20 +6,20 @@ export const HeadingSection = ({
   title,
   buttonText,
   href,
-  description,
+  description
 }: {
   title: string;
   buttonText?: string;
   href?: string;
   description?: string;
 }) => (
-  <div className="space-y-7">
+  <div className="space-y-4 md:space-y-7">
     <div
       className={cx(
         "flex flex-col space-y-4 md:space-y-0 md:flex-row items-center",
         {
           "justify-center": !href,
-          "justify-between": href,
+          "justify-between": href
         }
       )}
     >
@@ -33,7 +33,7 @@ export const HeadingSection = ({
     {description && (
       <TitleText
         className={cx("text-em-low", {
-          "text-center": !href,
+          "text-center": !href
         })}
       >
         {description}
