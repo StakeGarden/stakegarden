@@ -51,7 +51,10 @@ export const ConnectButton = () => {
   };
 
   return (
-    <Button onClick={onClickConnectWallet}>
+    <Button
+      onClick={onClickConnectWallet}
+      action={account ? "tertiary" : "primary"}
+    >
       {account
         ? account.slice(0, 4) +
           "..." +
