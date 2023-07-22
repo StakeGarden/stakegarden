@@ -227,8 +227,6 @@ We would like to express our gratitude to the following resources that have been
 
 These resources have provided valuable insights, tools, and inspiration throughout the development process. We appreciate their contributions to the web development community.
 
--->
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
