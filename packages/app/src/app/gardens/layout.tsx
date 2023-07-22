@@ -8,7 +8,7 @@ export default function GardensLayout({
   return (
     <section className="max-w-2xl px-4 py-16 mx-auto">
       {children}
-      <div className="absolute left-0 -bottom-64 -z-10 opacity-80">
+      <div className="left-0 hidden md:-bottom-64 -z-10 opacity-80 md:absolute">
         <Bambo />
       </div>
     </section>
