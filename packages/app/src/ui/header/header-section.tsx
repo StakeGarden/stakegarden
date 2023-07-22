@@ -15,10 +15,13 @@ export const HeadingSection = ({
 }) => (
   <div className="space-y-7">
     <div
-      className={cx("flex items-center", {
-        "justify-center": !href,
-        "justify-between": href,
-      })}
+      className={cx(
+        "flex flex-col space-y-4 md:space-y-0 md:flex-row items-center",
+        {
+          "justify-center": !href,
+          "justify-between": href,
+        }
+      )}
     >
       <DisplayText size={0}>{title}</DisplayText>
       {href && buttonText && (
