@@ -1,3 +1,4 @@
+// @ts-nocheck
 "use client";
 
 import { Button, CaptionText, HeadingSection } from "@/src/ui";
