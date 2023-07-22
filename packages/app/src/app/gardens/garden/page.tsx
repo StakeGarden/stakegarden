@@ -68,7 +68,7 @@ export default function Garden() {
       });
     });
 
-    console.log(newCalldatas);
+    console.log("new call datas", newCalldatas);
   };
 
   useEffect(() => {
@@ -91,7 +91,6 @@ export default function Garden() {
           functionName: "weights",
           args: [value],
         });
-        console.log(formatEther(newWeights as bigint));
         newTokenWeights = {
           ...newTokenWeights,
           [value]: formatEther(newWeights as bigint),
