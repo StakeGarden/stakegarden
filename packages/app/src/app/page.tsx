@@ -1,11 +1,12 @@
 import { ButtonLink, DisplayText, TitleText } from "@/src/ui";
-import NounsGlasses from "../../public/assets/nouns/nouns-glasses.svg";
+import NounsGlasses from "@/public/assets/nouns/nouns-glasses.svg";
+import Garden from "@/public/assets/nouns/garden.svg";
 
 export default function Home() {
   return (
-    <main className="py-32">
-      <div className="space-y-24">
-        <div className="max-w-5xl mx-auto space-y-4 text-center">
+    <main>
+      <div className="pt-16 space-y-24">
+        <div className="max-w-3xl mx-auto space-y-4 text-center">
           <div className="flex items-center justify-center">
             <NounsGlasses />
           </div>
@@ -21,6 +22,7 @@ export default function Home() {
           Explore Gardens
         </ButtonLink>
       </div>
+      <Garden className="w-full" />
     </main>
   );
 }
