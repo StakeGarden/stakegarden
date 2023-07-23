@@ -1,4 +1,18 @@
+"use client"
+
 import { BodyText, ButtonLink, HeadingSection, TitleText } from "@/src/ui";
+import { useEffect, useState } from "react";
+import { createPublicClient, getContract, http } from "viem";
+import { mainnet } from "viem/chains";
+import PoolFactoryABI from "../../abi/PoolFactory.json";
+import PoolABI from "../../abi/Pool.json";
+
+const publicClient = createPublicClient({
+  chain: mainnet,
+  transport: http(
+    "https://rpc.tenderly.co/fork/179c6093-0531-4a86-9847-c6c2915798e1"
+  )
+});
 
 const tokenImages = [
   "https://tokens.1inch.io/0xae7ab96520de3a18e5e111b5eaab095312d7fe84.png",
@@ -7,6 +21,44 @@ const tokenImages = [
 const tokensArrayETH = ["stETH", "rETH"];
 
 export default function Gardens() {
+  const [pools, setPools] = useState();
+
+  useEffect(() => {
+    const getPools = async () => {
+      const newPools: `0x${string}`[] = [];
+
+      const data = (await publicClient.readContract({
+        address: "0x5E87Eb8EB2DD334df0B0e3367CB53D9C435A20cC",
+        abi: PoolFactoryABI,
+        functionName: "pools",
+        args: ["0"]
+      })) as `0x${string}`;
+      
+      newPools.push(data);
+        
+
+      const contractPromises = newPools.map(async (value: `0x${string}`) => {
+        const tokenWeights = [] 
+        const contract = getContract({
+          address: value,
+          abi: PoolABI,
+          publicClient
+        });
+
+        const name = await contract.read.name() 
+        const symbol = await contract.read.symbol()
+        const stakeToken = await contract.read.stakeTokens(["0"]) as unknown[]
+        const tokenWeight = await contract.read.weights([stakeToken])
+
+        return {name, symbol, stakeToken, tokenWeight}
+      });
+
+      await Promise.all(contractPromises).then((responses) => setPools(responses as any))
+    };
+
+    getPools()
+  }, []);
+
   return (
     <main>
       <div className="space-y-6">
