@@ -133,7 +133,7 @@ export default function Gardens() {
                 <div className="flex justify-between px-4 py-2 rounded-lg bg-surface-25">
                   <BodyText className="text-em-med">Contract address</BodyText>
                   <BodyText className=" max-w-prose">
-                    0x4df5aae5b1acdd48a4c2052e3f7d0efaddcb3d8c
+                   {pool.address}
                   </BodyText>
                 </div>
               </div>
