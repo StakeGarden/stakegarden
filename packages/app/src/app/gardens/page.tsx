@@ -21,24 +21,26 @@ const tokenImages = [
 const tokensArrayETH = ["stETH", "rETH"];
 
 export default function Gardens() {
-  const [pools, setPools] = useState();
+  const [pools, setPools] = useState<any[]>([]);
 
   useEffect(() => {
-    const getPools = async () => {
+    const getPools = async (index: number) => {
       const newPools: `0x${string}`[] = [];
-
+      try{
       const data = (await publicClient.readContract({
         address: "0x5E87Eb8EB2DD334df0B0e3367CB53D9C435A20cC",
         abi: PoolFactoryABI,
         functionName: "pools",
-        args: ["0"]
+        args: [index.toString()]
       })) as `0x${string}`;
       
       newPools.push(data);
-        
+      } catch(e){
+        return
+      }
+
 
       const contractPromises = newPools.map(async (value: `0x${string}`) => {
-        const tokenWeights = [] 
         const contract = getContract({
           address: value,
           abi: PoolABI,
@@ -47,16 +49,20 @@ export default function Gardens() {
 
         const name = await contract.read.name() 
         const symbol = await contract.read.symbol()
-        const stakeToken = await contract.read.stakeTokens(["0"]) as unknown[]
-        const tokenWeight = await contract.read.weights([stakeToken])
+        const stakeToken1 = await contract.read.stakeTokens(["0"]) as unknown[]
+        const stakeToken2 = await contract.read.stakeTokens(["1"]) as unknown[]
+        const tokenWeight1 = await contract.read.weights([stakeToken1])
+        const tokenWeight2 = await contract.read.weights([stakeToken2])
 
-        return {name, symbol, stakeToken, tokenWeight}
+        return {name, symbol, stakeToken: [stakeToken1, stakeToken2], tokenWeight: [tokenWeight1, tokenWeight2]}
       });
 
-      await Promise.all(contractPromises).then((responses) => setPools(responses as any))
+      await Promise.all(contractPromises).then((responses: any) => setPools((currentPools) => [...currentPools, responses]))
     };
+    
+    for(let i = 0; i < 30; i++)
+      getPools(i)
 
-    getPools()
   }, []);
 
   return (
