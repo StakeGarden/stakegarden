@@ -28,6 +28,8 @@ type Pool = {
   tokenWeights: bigint[]
 }
 
+
+
 export default function Gardens() {
   const [pools, setPools] = useState<Pool[]>([]);
   console.log('pools:', pools)

@@ -1,13 +1,14 @@
 // @ts-nocheck
 "use client";
 
-import { Button, CaptionText, HeadingSection } from "@/src/ui";
+import { BodyText, Button, ButtonLink, CaptionText, HeadingSection, TitleText } from "@/src/ui";
 import { useSearchParams } from "next/navigation";
 import {
   createPublicClient,
   encodeFunctionData,
   formatEther,
   fromHex,
+  getContract,
   http,
   parseEther,
   toHex,
@@ -24,25 +25,52 @@ const client = createPublicClient({
   ),
 });
 
-const tokensArrayETH = ["stETH", "RPL"];
+const tokenImages = [
+  "https://tokens.1inch.io/0xae7ab96520de3a18e5e111b5eaab095312d7fe84.png",
+  "https://tokens.1inch.io/0xae78736cd615f374d3085123a210448e74fc6393.png"
+];
+const tokensArrayETH = ["stETH", "rETH"];
+
 const tokensAddressesETH = [
   "0xae7ab96520de3a18e5e111b5eaab095312d7fe84",
   "0xae78736cd615f374d3085123a210448e74fc6393",
 ];
 
 const nativeAddress = "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE";
-//const wethAddress = "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619";
 
 const swapETHContract = "0x8168855279A17F8E5e16db2c5CF16a65c15F9d1b";
 
-// https://api.1inch.io/v5.2/1/swap?amount=1000000000000000000&src=0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE&dst=0xae7ab96520de3a18e5e111b5eaab095312d7fe84&from=0x24509E1F87eDD8fC7c00f0738f45bC70aCe8BD4B&slippage=50&disableEstimate=true&receiver=0x4df5aae5b1acdd48a4c2052e3f7d0efaddcb3d8c&compatibility=true&allowPartialFill=false
 const oneInchEndpoint = (amount: string, sell: string, buy: string, poolAddress: string) =>
   `https://api.1inch.io/v5.2/1/swap?amount=${amount}&src=${sell}&dst=${buy}&from=${swapETHContract}&receiver=${poolAddress}&slippage=50&disableEstimate=true&compatibility=true&allowPartialFill=false`;
 
 export default function Garden() {
   const searchParams = useSearchParams();
   const address = searchParams.get("address");
+  const [pool, setPool] = useState<any>({});
+  console.log('pool:', pool)
 
+  useEffect(() => {
+    const getPool = async (index: number) => {
+      const contract = getContract({
+        address: address,
+        abi: PoolABI,
+        publicClient: client
+      });
+
+      const name = await contract.read.name() 
+      const symbol = await contract.read.symbol()
+      const stakeToken1 = await contract.read.stakeTokens(["0"]) as unknown[]
+      const stakeToken2 = await contract.read.stakeTokens(["1"]) as unknown[]
+      const tokenWeight1 = await contract.read.weights([stakeToken1])
+      const tokenWeight2 = await contract.read.weights([stakeToken2])
+      setPool({name, address, symbol, stakeTokens: [stakeToken1, stakeToken2], tokenWeights: [tokenWeight1, tokenWeight2]})
+    };
+    
+      getPool()
+
+  }, [address]);
+  
+  // stake into pool 
   const [name, setName] = useState<string>("");
   const [symbol, setSymbol] = useState<string>("");
   const [balance, setBalance] = useState<string>("");
@@ -160,7 +188,7 @@ export default function Garden() {
   }, [address, name]);
 
   return (
-    <main className="max-w-2xl py-16 mx-auto transperant">
+    <main className="space-y-12">
       <div className="space-y-6">
         <HeadingSection
           title={`Stake in ${name} garden`}
@@ -210,6 +238,59 @@ export default function Garden() {
           Stake
         </Button>
       </div>
+     {Object.keys(pool).length > 0 ? <div
+              key={pool.address}
+              className="p-5 space-y-8 bg-white border shadow-lg rounded-2xl border-surface-50"
+            >
+              <div className="flex justify-between">
+                <TitleText size={2}>{pool.name}</TitleText>
+                <ButtonLink
+                  action="tertiary"
+                  size="sm"
+                  href={`/gardens/garden?address=${pool.address}`}
+                >
+                  Stake
+                </ButtonLink>
+              </div>
+              <div className="space-y-4 divide-y divide-surface-25"> 
+                {pool.stakeTokens?.length > 0 && pool.stakeTokens?.map((value, index) =>
+                  <div key={value} className="flex justify-between">
+                    <div className="flex items-center space-x-5">
+                      <img
+                        src={tokenImages[index]}
+                        className="w-8 h-8 border rounded-full border-surface-75"
+                        alt="token logo"
+                      />
+                      <BodyText>{tokensArrayETH[index]}</BodyText>
+                    </div>
+                    <BodyText>{pool.tokenWeights[index].toString().slice(0, 2)}%</BodyText>
+                  </div>
+                )}
+              </div>
+              <div className="space-y-2">
+                <div className="flex justify-between px-4 py-2 rounded-lg bg-surface-25">
+                  <BodyText className="text-em-med">Variable APY</BodyText>
+                  <BodyText>4.23%</BodyText>
+                </div>
+                <div className="flex justify-between px-4 py-2 rounded-lg bg-surface-25">
+                  <BodyText className="text-em-med">Total ETH</BodyText>
+                  <BodyText>23</BodyText>
+                </div>
+                <div className="flex justify-between px-4 py-2 rounded-lg bg-surface-25">
+                  <BodyText className="text-em-med">Unique Owners</BodyText>
+                  <BodyText>74</BodyText>
+                </div>
+                <div className="flex justify-between px-4 py-2 rounded-lg bg-surface-25">
+                  <BodyText className="text-em-med">Contract address</BodyText>
+                  <BodyText className="truncate max-w-[160px] md:max-w-xl">
+                   {pool.address}
+                  </BodyText>
+                </div>
+              </div>
+            </div>: <Loading/>}
     </main>
   );
 }
+
+const Loading = () => <div className="p-5 bg-white rounded-lg shadow h-72 animate-pulse text-em-low"></div>
+
