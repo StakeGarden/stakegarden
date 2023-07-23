@@ -6,7 +6,7 @@ import Curves from "@/public/assets/curves.svg";
 export default function Home() {
   return (
     <main>
-      <Curves className="absolute top-0 -z-20" />
+      <Curves className="top-0 hidden w-full md:inline-flex -z-20 md:absolute" />
       <div className="pt-16 space-y-24">
         <div className="max-w-3xl px-4 mx-auto space-y-4 text-center">
           <div className="flex items-center justify-center">
