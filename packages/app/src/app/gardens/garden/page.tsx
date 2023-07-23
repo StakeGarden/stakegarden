@@ -24,12 +24,6 @@ const client = createPublicClient({
   ),
 });
 
-// const tokensArray = ["USDC", "WETH"];
-// const tokensAddresses = [
-//   "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
-//   "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
-// ];
-
 const tokensArrayETH = ["stETH", "RPL"];
 const tokensAddressesETH = [
   "0xae7ab96520de3a18e5e111b5eaab095312d7fe84",
@@ -38,8 +32,6 @@ const tokensAddressesETH = [
 
 const nativeAddress = "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE";
 //const wethAddress = "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619";
-
-const defaultTokenValue = (100 / tokensArrayETH.length).toString();
 
 const swapETHContract = "0x8168855279A17F8E5e16db2c5CF16a65c15F9d1b";
 
@@ -76,14 +68,11 @@ export default function Garden() {
     await Promise.all(fetchPromises).then((responses) => {
       responses.forEach((value, index) => {
         newCalldatas[index] = value.tx.data;
-        console.log(BigInt(newAmount), BigInt(value.tx.value))
-        console.log(BigInt(newAmount) + BigInt(value.tx.value))
-        console.log(newAmount, value.tx.value)
+        
         newAmount = (BigInt(newAmount) + BigInt(value.tx.value)).toString();
       });
     });
 
-    console.log(newCalldatas);
 
     const data = encodeFunctionData({
       abi: SwapNativeEthABI,
@@ -93,20 +82,10 @@ export default function Garden() {
       args: [address, newCalldatas],
     });
 
-    console.log('data', data);
 
     const accounts = (await window.ethereum?.request({
       method: "eth_requestAccounts",
     })) as string[];
-    
-    console.log(newAmount);
-    console.log({
-      from: accounts[0], // The user's active address.
-      to: "0xc2EB7eca9aF2A74590ca945A73Bf58aEe37622e8", //<recipient address> // Required except during contract publications.
-      value: newAmount,
-      data,
-      gasLimit: toHex(800000000)
-    },);
 
     window.ethereum
       ?.request({
@@ -115,10 +94,10 @@ export default function Garden() {
         params: [
           {
             from: accounts[0], // The user's active address.
-            to: "0xc2EB7eca9aF2A74590ca945A73Bf58aEe37622e8", //<recipient address> // Required except during contract publications.
+            to: "0x3fFce9082555D0383d23E091f74FF39D2374605C", // SwapNativeETH
             value: newAmount,
             data,
-            gasLimit: toHex(800000000)
+            gasLimit: toHex(90000000000)
           },
         ],
       })

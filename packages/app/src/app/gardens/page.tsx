@@ -37,7 +37,7 @@ export default function Gardens() {
       const newPools: `0x${string}`[] = [];
       try{
       const data = (await publicClient.readContract({
-        address: "0x5E87Eb8EB2DD334df0B0e3367CB53D9C435A20cC",
+        address: "0x4F0399E887ED6D8A7573D9e118649605A8a40147",
         abi: PoolFactoryABI,
         functionName: "pools",
         args: [index.toString()]

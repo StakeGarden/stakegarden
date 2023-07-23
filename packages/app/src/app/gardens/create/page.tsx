@@ -80,7 +80,7 @@ export default function Create() {
         params: [
           {
             from: accounts[0], // The user's active address.
-            to: "0x5E87Eb8EB2DD334df0B0e3367CB53D9C435A20cC", //<recipient address> // Required except during contract publications.
+            to: "0x4F0399E887ED6D8A7573D9e118649605A8a40147", // Factory
             data,
           },
         ],
