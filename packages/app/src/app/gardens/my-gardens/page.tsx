@@ -1,7 +1,7 @@
 "use client"
 
 import { BodyText, ButtonLink, HeadingSection, TitleText } from "@/src/ui";
-import { useEffect, useState } from "react";
+import { Key, useEffect, useState } from "react";
 import { createPublicClient, getContract, http } from "viem";
 import { mainnet } from "viem/chains";
 import PoolFactoryABI from "../../../abi/PoolFactory.json";
@@ -101,7 +101,7 @@ export default function Portfolios() {
                 </ButtonLink>
               </div>
               <div className="space-y-4 divide-y divide-surface-25"> 
-                {pool.stakeTokens?.length > 0 && pool.stakeTokens?.map((value, index) =>
+                {pool.stakeTokens?.length > 0 && pool.stakeTokens?.map((value: string, index: number) =>
                   <div key={value} className="flex justify-between">
                     <div className="flex items-center space-x-5">
                       <img
