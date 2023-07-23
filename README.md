@@ -12,7 +12,7 @@
 
 <br />
 <div align="center">
-  <a href="https://github.com/StakeGarden/stakegarden">
+  <a href="https://github.com/orgs/StakeGarden/repositories">
     <img src="https://i.imgur.com/2XF05aM.png">
   </a>
 
@@ -23,13 +23,13 @@
   [🇫🇷 Eth Global Paris 2023 Hackaton Project 🇫🇷](https://ethglobal.com/events/paris2023)
 
    <br />
-    <a href="https://github.com/StakeGarden/stakegarden"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/orgs/StakeGarden/repositories"><strong>Explore the github »</strong></a>
     <br />
-    <a href="https://github.com/StakeGarden/stakegarden">View Demo</a>
+    <a href="https://github.com/orgs/StakeGarden/repositories">View Demo</a>
     ·
-    <a href="https://github.com/StakeGarden/stakegarden">Report Bug</a>
+    <a href="https://github.com/StakeGarden/stakegarden/issues/new">Report Bug</a>
     ·
-    <a href="https://github.com/StakeGarden/stakegarden">Request Feature</a>
+    <a href="https://github.com/StakeGarden/stakegarden/issues/new">Request Feature</a>
   </p>
 </div>
 
@@ -125,7 +125,7 @@ To get started with Stake Garden, follow these steps:
    ```
 2. Navigate to the project directory:
    ```sh
-   cd join
+   cd packages/app
    ```
 3. Install the necessary dependencies:
    ```js
@@ -195,7 +195,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 Push Chat Contact: [stakegarden.eth](https://app.push.org/chat)
 <br />
-Project Link: [stakegarden Github](https://github.com/StakeGarden/stakegarden)
+Project Link: [stakegarden Github](https://github.com/orgs/StakeGarden/repositories)
 <br />
 
 
