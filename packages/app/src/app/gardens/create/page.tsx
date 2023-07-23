@@ -8,13 +8,6 @@ import { createPublicClient, http } from "viem";
 import { mainnet } from "viem/chains";
 import { useRouter } from "next/navigation";
 
-// add ethereum type to window
-declare global {
-  interface Window {
-    ethereum: any
-  }
-}
-
 const client = createPublicClient({
   chain: mainnet,
   transport: http(
@@ -41,9 +34,9 @@ export default function Create() {
   const [values, setValues] = useState<string[]>(
     Array(tokensArrayETH.length).fill(defaultTokenValue)
   );
-  const [calldatas, setCalldatas] = useState<(string | undefined)[]>(
-    Array(tokensArrayETH.length).fill(undefined)
-  );
+  // const [calldatas, setCalldatas] = useState<(string | undefined)[]>(
+  //   Array(tokensArrayETH.length).fill(undefined)
+  // );
   const router = useRouter();
 
   const [tokenName, setTokenName] = useState<string>();
@@ -85,7 +78,7 @@ export default function Create() {
           },
         ],
       })
-      .then(async (txHash: string) => {
+      .then(async (txHash: any) => {
         const transaction = await client?.getTransactionReceipt({
           hash: txHash as `0x${string}`,
         });
