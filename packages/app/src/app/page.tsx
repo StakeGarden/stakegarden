@@ -16,8 +16,8 @@ export default function Home() {
             Stake your ETH in the most diversified gardens
           </DisplayText>
           <TitleText size={2} className="text-em-low">
-            The garden is staked eth portfolios that are fully collateralize. Or
-            you can create your own.{" "}
+            The gardens are made of liquid ETH. Fully collateralized. You can
+            stake on a garden or create your own.
           </TitleText>
         </div>
         <ButtonLink href="/gardens" width="fit" className="mx-auto" size="lg">
