@@ -21,7 +21,7 @@ export default function MobileMenuList({ open, toggle }: MobileMenuListProps) {
           className="flex items-center py-3 text-em-med"
           onClick={toggle}
         >
-          My gardens
+          My Gardens
         </Link>
       </div>
     </>

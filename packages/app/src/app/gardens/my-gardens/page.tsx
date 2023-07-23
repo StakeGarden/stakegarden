@@ -76,7 +76,7 @@ export default function Portfolios() {
     <main>
       <div className="space-y-6">
         <HeadingSection
-          title="My gardens"
+          title="My Gardens"
           description="List of my portfolios"
           buttonText="Create Portfolio"
           href="/gardens/create"

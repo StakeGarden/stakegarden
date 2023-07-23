@@ -62,7 +62,7 @@ export const ConnectButton = () => {
       {wallet.accounts.length > 0 ? (
         <span>{shortAddress(wallet.accounts[0])}</span>
       ) : (
-        "connect"
+        "Connect"
       )}
     </Button>
   );
