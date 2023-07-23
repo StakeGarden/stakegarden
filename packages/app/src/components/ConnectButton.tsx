@@ -3,6 +3,10 @@
 import { useEffect, useState } from "react";
 import { Button } from "../ui";
 import detectEthereumProvider from "@metamask/detect-provider";
+import { MetaMaskSDK } from "@metamask/sdk";
+import MetaMaskOnboarding from "@metamask/onboarding";
+
+const MMSDK = new MetaMaskSDK({ dappMetadata: { name: "Stake Garden" } });
 
 export const ConnectButton = () => {
   const [hasProvider, setHasProvider] = useState<boolean | null>(null);
@@ -32,6 +36,7 @@ export const ConnectButton = () => {
     };
 
     getProvider();
+
     return () => {
       window.ethereum?.removeListener("accountsChanged", refreshAccounts);
     };
@@ -42,10 +47,15 @@ export const ConnectButton = () => {
   };
 
   const handleConnect = async () => {
-    let accounts = await window.ethereum?.request({
-      method: "eth_requestAccounts"
-    });
-    updateWallet(accounts);
+    MMSDK.connect()
+      .then(async (accounts: any) => {
+        console.log("MetaMask SDK is connected", accounts);
+        setWallet({ accounts });
+        return;
+      })
+      .catch((error: any) => {
+        console.error(error);
+      });
   };
 
   const shortAddress = (account: string) =>
