@@ -6,6 +6,10 @@
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 
+<h2>
+  <a target="_blank" href="https://github.com/StakeGarden/stakegarden-contracts">❗❗❗Link to Smart Contracts Repository❗❗❗</a>
+</h2>
+
 </div>
 
 <!-- PROJECT INTRO -->
@@ -84,7 +88,6 @@ Join us now and cultivate your financial growth in the ever-expanding world of d
 Stake Garden is proudly supported by the following sponsors:
 
 * [![1inch][1inch.io]][1inch-url]
-* [![The Graph][thegraph.com]][Thegraph-url]
 * [![Metamask][metamask.io]][Metamask-url]
 * [![Nouns DAO][nouns.wtf]][Nouns-url]
 
