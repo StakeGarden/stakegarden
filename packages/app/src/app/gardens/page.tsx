@@ -20,8 +20,17 @@ const tokenImages = [
 ];
 const tokensArrayETH = ["stETH", "rETH"];
 
+type Pool = {
+  name: string,
+  symbol: string,
+  address: string,
+  stakeTokens: string[],
+  tokenWeights: bigint[]
+}
+
 export default function Gardens() {
-  const [pools, setPools] = useState<any[]>([]);
+  const [pools, setPools] = useState<Pool[]>([]);
+  console.log('pools:', pools)
 
   useEffect(() => {
     const getPools = async (index: number) => {
@@ -54,10 +63,10 @@ export default function Gardens() {
         const tokenWeight1 = await contract.read.weights([stakeToken1])
         const tokenWeight2 = await contract.read.weights([stakeToken2])
 
-        return {name, symbol, stakeToken: [stakeToken1, stakeToken2], tokenWeight: [tokenWeight1, tokenWeight2]}
+        return {name, address: value, symbol, stakeTokens: [stakeToken1, stakeToken2], tokenWeights: [tokenWeight1, tokenWeight2]}
       });
 
-      await Promise.all(contractPromises).then((responses: any) => setPools((currentPools) => [...currentPools, responses]))
+      await Promise.all(contractPromises).then((responses: any) => setPools((currentPools) => [...currentPools, ...responses]))
     };
     
     for(let i = 0; i < 30; i++)
@@ -75,44 +84,38 @@ export default function Gardens() {
           href="/gardens/create"
         />
         <div className="space-y-6 md:space-y-12">
-          {[1, 2].map(index => (
+          {pools.length > 0 ? pools.map(pool => {
+            console.log(pool)
+          
+            return (
             <div
-              key={index}
+              key={pool.address}
               className="p-5 space-y-8 bg-white border shadow-lg rounded-2xl border-surface-50"
             >
               <div className="flex justify-between">
-                <TitleText size={2}>SG</TitleText>
+                <TitleText size={2}>{pool.name}</TitleText>
                 <ButtonLink
                   action="tertiary"
                   size="sm"
-                  href="/gardens/garden?address=0x4df5aae5b1acdd48a4c2052e3f7d0efaddcb3d8c"
+                  href={`/gardens/garden?address=${pool.address}`}
                 >
                   Stake
                 </ButtonLink>
               </div>
-              <div className="space-y-4 divide-y divide-surface-25">
-                <div className="flex justify-between">
-                  <div className="flex items-center space-x-5">
-                    <img
-                      src={tokenImages[0]}
-                      className="w-8 h-8 border rounded-full border-surface-75"
-                      alt="token logo"
-                    />
-                    <BodyText>{tokensArrayETH[0]}</BodyText>
+              <div className="space-y-4 divide-y divide-surface-25"> 
+                {pool.stakeTokens?.length > 0 && pool.stakeTokens?.map((value, index) =>
+                  <div key={value} className="flex justify-between">
+                    <div className="flex items-center space-x-5">
+                      <img
+                        src={tokenImages[index]}
+                        className="w-8 h-8 border rounded-full border-surface-75"
+                        alt="token logo"
+                      />
+                      <BodyText>{tokensArrayETH[index]}</BodyText>
+                    </div>
+                    <BodyText>{pool.tokenWeights[index].toString().slice(0, 2)}%</BodyText>
                   </div>
-                  <BodyText>45%</BodyText>
-                </div>
-                <div className="flex justify-between">
-                  <div className="flex items-center space-x-5">
-                    <img
-                      src={tokenImages[1]}
-                      className="w-8 h-8 border rounded-full border-surface-75"
-                      alt="token logo"
-                    />
-                    <BodyText>{tokensArrayETH[1]}</BodyText>
-                  </div>
-                  <BodyText>55%</BodyText>
-                </div>
+                )}
               </div>
               <div className="space-y-2">
                 <div className="flex justify-between px-4 py-2 rounded-lg bg-surface-25">
@@ -129,15 +132,21 @@ export default function Gardens() {
                 </div>
                 <div className="flex justify-between px-4 py-2 rounded-lg bg-surface-25">
                   <BodyText className="text-em-med">Contract address</BodyText>
-                  <BodyText>
+                  <BodyText className=" max-w-prose">
                     0x4df5aae5b1acdd48a4c2052e3f7d0efaddcb3d8c
                   </BodyText>
                 </div>
               </div>
             </div>
-          ))}
+          )}) : <LoadingCards/>}
         </div>
       </div>
     </main>
   );
 }
+
+const LoadingCards = () => <>
+  <div className="p-5 bg-white rounded-lg h-72 animate-pulse text-em-low"></div>
+  <div className="p-5 bg-white rounded-lg h-72 animate-pulse text-em-low"></div>
+  <div className="p-5 bg-white rounded-lg h-72 animate-pulse text-em-low"></div>
+</>
