@@ -47,7 +47,6 @@ export default function Garden() {
   const searchParams = useSearchParams();
   const address = searchParams.get("address");
   const [pool, setPool] = useState<any>({});
-  console.log('pool:', pool)
 
   useEffect(() => {
     const getPool = async (index: number) => {
@@ -76,6 +75,7 @@ export default function Garden() {
   const [balance, setBalance] = useState<string>("");
   const [amount, setAmount] = useState<string>("");
   const [tokenWeights, setTokenWeights] = useState<Record<string, string>>();
+  const [success, setSuccess] = useState<boolean>(false);
 
   const createStake = async () => {
     let newAmount = "0"
@@ -136,6 +136,7 @@ export default function Garden() {
         //setPoolAddress(transaction.logs[0].address);
         console.log(txHash)
         console.log(transaction)
+        setSuccess(true)
       })
       .catch((error) => console.error(error));
   };
@@ -188,7 +189,15 @@ export default function Garden() {
   }, [address, name]);
 
   return (
-    <main className="space-y-12">
+    <main>
+      {success &&
+          <div className="absolute px-6 py-3 mx-auto rounded-lg border border-primary-200 right-[42%] top-24 bg-primary-100 w-[300px]">
+            <BodyText size={3} className="text-center"> Staked ✅</BodyText>
+          </div>
+      }
+      <div className="space-y-12">
+
+     
       <div className="space-y-6">
         <HeadingSection
           title={`Stake in ${name} garden`}
@@ -287,7 +296,8 @@ export default function Garden() {
                   </BodyText>
                 </div>
               </div>
-            </div>: <Loading/>}
+        </div> : <Loading />}
+        </div>
     </main>
   );
 }
