@@ -32,8 +32,8 @@ export const HeadingSection = ({
     </div>
     {description && (
       <TitleText
-        className={cx("text-em-low", {
-          "text-center": !href
+        className={cx("text-em-low text-center md:text-left", {
+          "text-center md:text-center": !href
         })}
       >
         {description}
