@@ -146,7 +146,7 @@ export default function Gardens() {
 }
 
 const LoadingCards = () => <>
-  <div className="p-5 bg-white rounded-lg h-72 animate-pulse text-em-low"></div>
-  <div className="p-5 bg-white rounded-lg h-72 animate-pulse text-em-low"></div>
-  <div className="p-5 bg-white rounded-lg h-72 animate-pulse text-em-low"></div>
+  <div className="p-5 bg-white rounded-lg shadow h-72 animate-pulse text-em-low"></div>
+  <div className="p-5 bg-white rounded-lg shadow h-72 animate-pulse text-em-low"></div>
+  <div className="p-5 bg-white rounded-lg shadow h-72 animate-pulse text-em-low"></div>
 </>
