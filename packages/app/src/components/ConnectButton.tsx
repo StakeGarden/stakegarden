@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { Button } from "../ui";
 import detectEthereumProvider from "@metamask/detect-provider";
 import { MetaMaskSDK } from "@metamask/sdk";
-import MetaMaskOnboarding from "@metamask/onboarding";
 
 const MMSDK = new MetaMaskSDK({ dappMetadata: { name: "Stake Garden" } });
 
