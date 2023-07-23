@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { encodeFunctionData, parseEther } from "viem";
 import PoolFactoryABI from "@/src/abi/PoolFactory.json";
 import { createPublicClient, http } from "viem";
-import { mainnet } from "viem/chains";
+import { gnosis } from "viem/chains";
 import { useRouter } from "next/navigation";
 
 // add ethereum type to window
@@ -16,9 +16,9 @@ declare global {
 }
 
 const client = createPublicClient({
-  chain: mainnet,
+  chain: gnosis,
   transport: http(
-    "https://rpc.tenderly.co/fork/179c6093-0531-4a86-9847-c6c2915798e1"
+    "https://rpc.gnosischain.com/"
   ),
 });
 
@@ -31,8 +31,8 @@ const Card = ({ children }: { children: any }) => (
 const tokenImages = ["https://tokens.1inch.io/0xae7ab96520de3a18e5e111b5eaab095312d7fe84.png","https://tokens.1inch.io/0xae78736cd615f374d3085123a210448e74fc6393.png"]
 const tokensArrayETH = ["stETH", "rETH"];
 const tokensAddressesETH = [
-  "0xae7ab96520de3a18e5e111b5eaab095312d7fe84",
-  "0xae78736cd615f374d3085123a210448e74fc6393",
+  "0xddafbb505ad214d7b80b1f830fccc89b60fb7a83",
+  "0x44fA8E6f47987339850636F88629646662444217",
 ];
 
 const defaultTokenValue = (100 / tokensArrayETH.length).toString();
@@ -80,7 +80,7 @@ export default function Create() {
         params: [
           {
             from: accounts[0], // The user's active address.
-            to: "0x4F0399E887ED6D8A7573D9e118649605A8a40147", // Factory
+            to: "0xc4FfDED34C56de709Be01A109e43EdB2c3bF8581", // Factory
             data,
           },
         ],

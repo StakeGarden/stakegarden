@@ -3,14 +3,14 @@
 import { BodyText, ButtonLink, HeadingSection, TitleText } from "@/src/ui";
 import { useEffect, useState } from "react";
 import { createPublicClient, getContract, http } from "viem";
-import { mainnet } from "viem/chains";
+import { gnosis } from "viem/chains";
 import PoolFactoryABI from "../../abi/PoolFactory.json";
 import PoolABI from "../../abi/Pool.json";
 
 const publicClient = createPublicClient({
-  chain: mainnet,
+  chain: gnosis,
   transport: http(
-    "https://rpc.tenderly.co/fork/179c6093-0531-4a86-9847-c6c2915798e1"
+    "https://rpc.gnosischain.com/"
   )
 });
 
@@ -37,7 +37,7 @@ export default function Gardens() {
       const newPools: `0x${string}`[] = [];
       try{
       const data = (await publicClient.readContract({
-        address: "0x4F0399E887ED6D8A7573D9e118649605A8a40147",
+        address: "0xc4FfDED34C56de709Be01A109e43EdB2c3bF8581",
         abi: PoolFactoryABI,
         functionName: "pools",
         args: [index.toString()]

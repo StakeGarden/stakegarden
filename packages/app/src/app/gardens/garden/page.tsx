@@ -12,22 +12,22 @@ import {
   parseEther,
   toHex,
 } from "viem";
-import { mainnet } from "viem/chains";
+import { gnosis } from "viem/chains";
 import SwapNativeEthABI from "@/src/abi/SwapNativeEth.json";
 import PoolABI from "@/src/abi/Pool.json";
 import { useEffect, useState } from "react";
 
 const client = createPublicClient({
-  chain: mainnet,
+  chain: gnosis,
   transport: http(
-    "https://rpc.tenderly.co/fork/179c6093-0531-4a86-9847-c6c2915798e1"
+    "https://rpc.gnosischain.com/"
   ),
 });
 
 const tokensArrayETH = ["stETH", "RPL"];
 const tokensAddressesETH = [
-  "0xae7ab96520de3a18e5e111b5eaab095312d7fe84",
-  "0xae78736cd615f374d3085123a210448e74fc6393",
+  "0xddafbb505ad214d7b80b1f830fccc89b60fb7a83",
+  "0x44fA8E6f47987339850636F88629646662444217",
 ];
 
 const nativeAddress = "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE";
@@ -37,7 +37,7 @@ const swapETHContract = "0x8168855279A17F8E5e16db2c5CF16a65c15F9d1b";
 
 // https://api.1inch.io/v5.2/1/swap?amount=1000000000000000000&src=0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE&dst=0xae7ab96520de3a18e5e111b5eaab095312d7fe84&from=0x24509E1F87eDD8fC7c00f0738f45bC70aCe8BD4B&slippage=50&disableEstimate=true&receiver=0x4df5aae5b1acdd48a4c2052e3f7d0efaddcb3d8c&compatibility=true&allowPartialFill=false
 const oneInchEndpoint = (amount: string, sell: string, buy: string, poolAddress: string) =>
-  `https://api.1inch.io/v5.2/1/swap?amount=${amount}&src=${sell}&dst=${buy}&from=${swapETHContract}&receiver=${poolAddress}&slippage=50&disableEstimate=true&compatibility=true&allowPartialFill=false`;
+  `https://api.1inch.io/v5.2/100/swap?amount=${amount}&src=${sell}&dst=${buy}&from=${swapETHContract}&receiver=${poolAddress}&slippage=50&disableEstimate=true&compatibility=true&allowPartialFill=false`;
 
 export default function Garden() {
   const searchParams = useSearchParams();
@@ -94,7 +94,7 @@ export default function Garden() {
         params: [
           {
             from: accounts[0], // The user's active address.
-            to: "0x3fFce9082555D0383d23E091f74FF39D2374605C", // SwapNativeETH
+            to: "0xA5ec07bA6Fb90424F17Cf40e630C5452055282B2", // SwapNativeETH
             value: newAmount,
             data,
             gasLimit: toHex(90000000000)
