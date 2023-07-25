@@ -34,9 +34,7 @@ export default function Create() {
   const [values, setValues] = useState<string[]>(
     Array(tokensArrayETH.length).fill(defaultTokenValue)
   );
-  // const [calldatas, setCalldatas] = useState<(string | undefined)[]>(
-  //   Array(tokensArrayETH.length).fill(undefined)
-  // );
+
   const router = useRouter();
 
   const [tokenName, setTokenName] = useState<string>();
@@ -57,8 +55,6 @@ export default function Create() {
     const data = encodeFunctionData({
       abi: PoolFactoryABI,
       functionName: "createPool",
-      // stakeTokens, weights, name, symbol
-      // string[], string[], string, string
       args: [tokensAddressesETH, weight, tokenName, tokenSymbol],
     });
 
@@ -69,7 +65,6 @@ export default function Create() {
     window.ethereum
       ?.request({
         method: "eth_sendTransaction",
-        // The following sends an EIP-1559 transaction. Legacy transactions are also supported.
         params: [
           {
             from: accounts[0], // The user's active address.
@@ -82,7 +77,6 @@ export default function Create() {
         const transaction = await client?.getTransactionReceipt({
           hash: txHash as `0x${string}`,
         });
-        //setPoolAddress(transaction.logs[0].address);
         console.log(txHash)
         router.push("/gardens/garden?address=" + transaction.logs[0].address);
       })

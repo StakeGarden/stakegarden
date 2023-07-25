@@ -105,8 +105,6 @@ export default function Garden() {
     const data = encodeFunctionData({
       abi: SwapNativeEthABI,
       functionName: "executeSwaps",
-      // stakeTokens, weights, name, symbol
-      // string, string[]
       args: [address, newCalldatas],
     });
 
@@ -118,7 +116,6 @@ export default function Garden() {
     window.ethereum
       ?.request({
         method: "eth_sendTransaction",
-        // The following sends an EIP-1559 transaction. Legacy transactions are also supported.
         params: [
           {
             from: accounts[0], // The user's active address.
@@ -133,7 +130,6 @@ export default function Garden() {
         const transaction = await client?.getTransactionReceipt({
           hash: txHash as `0x${string}`,
         });
-        //setPoolAddress(transaction.logs[0].address);
         console.log(txHash)
         console.log(transaction)
         setSuccess(true)

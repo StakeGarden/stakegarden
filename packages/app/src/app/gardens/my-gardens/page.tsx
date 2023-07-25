@@ -1,7 +1,7 @@
 "use client"
 
 import { BodyText, ButtonLink, HeadingSection, TitleText } from "@/src/ui";
-import { Key, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { createPublicClient, getContract, http } from "viem";
 import { mainnet } from "viem/chains";
 import PoolFactoryABI from "../../../abi/PoolFactory.json";
